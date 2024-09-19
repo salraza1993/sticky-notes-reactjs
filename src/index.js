@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GridStructure from './components/GridStructure';
+import { StickyContextProvider } from './contexts/stickyContextManager';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <GridStructure />
+    <StickyContextProvider>
+      <App />
+    </StickyContextProvider>
+  </>
+// {/* <React.StrictMode>
+// </React.StrictMode> */}
 );
 
 // If you want to start measuring performance in your app, pass a function

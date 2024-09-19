@@ -1,0 +1,50 @@
+:root {
+  --body-bg: #f1f1f1;
+  --body-color: #252525;
+  --light: #ffffff;
+  --light-rgb: 255, 255, 255;
+  --dark: #252525;
+  --dark-rgb: 37, 37, 37;
+  --border-color: #e4e4e4;
+  --danger-bg: #ffe6e6;
+  --danger-color: #990000;
+
+  --border: 1px solid var(--border-color);
+  --transition: all 0.3s ease-in-out;
+  --header-element-height: 35px;
+  --border-radius: 5px;
+  --header-height: 60px;
+  --scrollbar-width: 3px;
+  --box-shadow:
+    0.9px 1.5px 2.2px rgba(0, 0, 0, 0.037),
+    2.1px 3.5px 5.3px rgba(0, 0, 0, 0.053),
+    3.9px 6.6px 10px rgba(0, 0, 0, 0.065),
+    6.9px 11.8px 17.9px rgba(0, 0, 0, 0.077),
+    13px 22.1px 33.4px rgba(0, 0, 0, 0.093),
+    31px 53px 80px rgba(0, 0, 0, 0.13);
+
+  
+  --icon-hover-bg: rgba(var(--dark-rgb), 0.2);
+
+  --sticky-bg: var(--light);
+  --sticky-color: var(--dark);
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: #252525;
+    --body-color: #ebebeb;
+    --light: #6a6a6a;
+    --light-rgb: 69, 69, 69;
+    --dark: #dddddd;
+    --dark-rgb: 221, 221, 221;
+    --border-color: #444444;
+    --danger-bg: #660000;
+    --danger-color: #ffcccc;
+    --sticky-bg: var(--dark);
+    --sticky-color: var(--light);
+
+    --icon-hover-bg: rgba(0,0,0, 0.4);
+  }
+}
