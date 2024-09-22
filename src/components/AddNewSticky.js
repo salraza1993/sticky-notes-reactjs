@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStickyContext } from "../contexts/stickyContextManager";
 import { stickyColors, uniqueIdGenerator } from "../common/common";
 import useClickOutside from "../common/useClickoutside";
-import { defaultStickyColors, stickyItemFormat } from "../common/newStickyFormat";
+import { stickyItemFormat } from "../common/newStickyFormat";
+import { getSettingInnerItem, setSettingInnerItem } from "../utils/LocalStorage";
 
 function AddNewSticky() {
   const { addItemToLocalStorage } = useStickyContext();
   const [isActive, setIsActive] = useState(false);
+  const defaultStickyColors = getSettingInnerItem('stickyStyles')
   const [selectedColor, setSelectedColor] = useState(defaultStickyColors);  
   
   const createNewHandler = () => {
@@ -17,11 +19,15 @@ function AddNewSticky() {
   }
   
   const selectedColorHandler = (event) => { 
-    setSelectedColor(event)
     setIsActive(false)
+    setSelectedColor(event)
+    setSettingInnerItem('stickyStyles', event)
   }
   
   const elementRef = useClickOutside(() => setIsActive(false));
+  // useEffect(() => {
+  //   setSelectedColor(getSettingInnerItem('stickyStyles'))
+  // }, [selectedColor])
 
   return (
     <div className={isActive ? 'add-new-block active' : 'add-new-block'} ref={elementRef}>
