@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { clearStickyNotes, getSettingInnerItem, getStickyNotes, getStickySettings, removeStickyNote, setInnerItem, setSettingInnerItem, setSingleStickyNotes, stickyNotesKey, updateAllStickyNotes } from '../utils/LocalStorage';
+import { clearStickyNotes, getSettingInnerItem, getStickyNotes, removeStickyNote, setInnerItem, setSettingInnerItem, setSingleStickyNotes, stickyNotesKey, updateAllStickyNotes } from '../utils/LocalStorage';
 import { cardWidth, gutter } from '../common/newStickyFormat';
 
 const stickyContexts = createContext();

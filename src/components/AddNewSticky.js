@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useStickyContext } from "../contexts/stickyContextManager";
 import { stickyColors, uniqueIdGenerator } from "../common/common";
 import useClickOutside from "../common/useClickoutside";

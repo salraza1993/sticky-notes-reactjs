@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { getInnerItem, getStickyNotes, setInnerItem } from "../utils/LocalStorage";
+import { useEffect, useRef } from "react";
+import { setInnerItem } from "../utils/LocalStorage";
 
 function useDragger(elementId) {
   const isClicked = useRef(false);

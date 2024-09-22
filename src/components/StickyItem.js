@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useStickyContext } from "../contexts/stickyContextManager";
 import useClickOutside from "../common/useClickoutside";
 import { getInnerItem } from "../utils/LocalStorage";
@@ -13,7 +13,6 @@ function StickyItem({ data }) {
   const stickyNoteRef = useRef(null);
   const { removeItemToLocalStorage, setInnerItemContent } = useStickyContext();
 
-  const [itemId, setItemId] = useState(data.id);
   const [showAlert, setShowAlert] = useState(false);
   const [showColorPalette, setShowColorPalette] = useState(false);
   const [isActive, setIsActive] = useState(false);

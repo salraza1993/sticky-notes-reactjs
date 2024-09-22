@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import GridStructure from './components/GridStructure';
 import { StickyContextProvider } from './contexts/stickyContextManager';
-import { StickySettingsContextProvider } from './contexts/stickySettingsContextManager';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
