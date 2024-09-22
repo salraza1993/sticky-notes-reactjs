@@ -1,19 +1,17 @@
-import React, { useEffect } from 'react'
 import { useStickyContext } from '../contexts/stickyContextManager';
 import { stickyItemFormat } from '../common/newStickyFormat';
 import { uniqueIdGenerator } from '../common/common';
+import { getSettingInnerItem, setSettingInnerItem } from '../utils/LocalStorage';
 
 function AddNewPlusButton({ colors }) {
   const { addItemToLocalStorage } = useStickyContext();
   const createNewHandler = () => {    
     const newItem = { ...stickyItemFormat };
     newItem.id = uniqueIdGenerator();
-    newItem.styles = colors;
-    addItemToLocalStorage(newItem);
+    setSettingInnerItem('stickyStyles', colors)
+    newItem.styles = getSettingInnerItem('stickyStyles');
+    addItemToLocalStorage(newItem, 1);
   }
-
-  useEffect(() => {}, [])
-
   return (
     <div
       className="icon plus"

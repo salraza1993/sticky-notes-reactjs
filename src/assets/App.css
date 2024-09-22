@@ -20,9 +20,11 @@
 }
 
 body {
-  --body-padding: 1vw;
+  --body-padding: 25px;
   background-color: var(--body-bg);
   color: var(--body-color);
+  background-image: var(--grid-lines);
+  background-size: var(--body-padding) auto;
 }
 
 
@@ -54,6 +56,7 @@ body {
     }
   }
 }
+
 .main-wrapper {
   position: relative;
   min-height: 100vh;
@@ -65,14 +68,48 @@ body {
 }
 
 .main-header {
+  --size: 50px;
+  --gap: 10px;
+  --elements-height: calc(var(--size) - (var(--gap) * 1.25));
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   /* height: var(--header-height); */
-
+  .start-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .buttons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--elements-height);
+    background-color: var(--light);
+    border-radius: var(--elements-height);
+    overflow: clip;
+    .button {
+      min-width: 110px;
+      height: inherit;
+      padding-inline: 1rem;
+      border: 0;
+      cursor: pointer;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--body-color);
+      transition: var(--transition);
+      &:hover {
+        background-color: var(--body-color);
+        color: var(--body-bg);
+      }
+    }
+  }
   .add-new-block {
-    --size: 50px;
-    --gap: 10px;
-    --elements-height: calc(var(--size) - (var(--gap) * 1.25));
     position: relative;
     &:is(.active), &:focus-within {
       z-index: 10;
@@ -217,9 +254,26 @@ body {
     inset: 0;
     pointer-events: none;
     z-index: -1;
-    border: 1px solid var(--card-body-color);
     opacity: 0.2;
-    border-radius: inherit;
+    border-radius: 0;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    --card-strip: var(--card-header-bg-dark);
+    --card-header-bg: var(--card-header-bg-dark);
+    --card-body-bg: var(--card-body-bg-dark);
+    --card-body-color: var(--card-body-color-dark);
+    
+    &::after {
+      opacity: 1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 8px;
+      inset-block-start: 0;
+      background-color: var(--card-strip);
+      z-index: -1;
+    }
   }
 
   .img-container {
@@ -265,23 +319,6 @@ body {
       display: block;
       object-fit: cover;
     }
-  }
-
-
-  @media (prefers-color-scheme: dark) {
-    --card-strip: var(--card-header-bg-dark);
-    --card-header-bg: var(--card-header-bg-dark);
-    --card-body-bg: var(--card-body-bg-dark);
-    --card-body-color: var(--card-body-color-dark);
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 8px;
-      inset-block-start: 0;
-      background-color: var(--card-strip);
-      z-index: -1;
-    }    
   }
 
   &:hover, &:focus-within, &:is(.active, .hover) {
@@ -420,4 +457,13 @@ body {
       }
     }
   }
+}
+
+.container-box {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  z-index: 10;
+  position: absolute;
+  inset-inline-start: 0;
 }

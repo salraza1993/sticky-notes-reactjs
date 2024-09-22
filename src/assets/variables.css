@@ -8,6 +8,7 @@
   --border-color: #e4e4e4;
   --danger-bg: #ffe6e6;
   --danger-color: #990000;
+  --grid-lines: url('../assets/border-dark.svg');
 
   --border: 1px solid var(--border-color);
   --transition: all 0.3s ease-in-out;
@@ -44,6 +45,7 @@
     --danger-color: #ffcccc;
     --sticky-bg: var(--dark);
     --sticky-color: var(--light);
+    --grid-lines: url('../assets/border-light.svg');
 
     --icon-hover-bg: rgba(0,0,0, 0.4);
   }

@@ -14,7 +14,8 @@ export const removeInlineStyles = (html) => {
     div.classList.add('img-container');
     const span = document.createElement('span');
     span.classList.add('image-remover');
-    // span.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+    span.setAttribute("onclick", "this.parentNode.parentNode.remove()");
+    span.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
     div.appendChild(span);
     div.appendChild(img.cloneNode(true));
     img.replaceWith(div);
