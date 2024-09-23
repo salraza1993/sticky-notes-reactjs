@@ -76,7 +76,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: var(--header-height); */
+  
   .start-block {
     display: flex;
     align-items: center;
@@ -111,9 +111,7 @@ body {
   }
   .add-new-block {
     position: relative;
-    &:is(.active), &:focus-within {
-      z-index: 10;
-    }
+   
     height: var(--size);
     background-color: var(--light);
     border-radius: var(--size);
@@ -124,11 +122,16 @@ body {
     padding-inline: calc(var(--gap) / 1.5);
     gap: calc(var(--gap) /2);
     box-shadow: var(--box-shadow);
+    &:is(.active),
+    &:focus-within {
+      z-index: 10;
+    }
+
     input {
       position: relative;
       all: unset;
       flex-shrink: 0;
-      -webkit-appearance: none;
+      appearance: none;
       border: none;
       width: 32px;
       height: 32px;
@@ -246,7 +249,6 @@ body {
   border-radius: calc(var(--border-radius) * 1.5);
   box-shadow: var(--box-shadow);
   overflow: clip;
-  /* transition: var(--transition); */
   isolation: isolate;
   &::after {
     content: '';
@@ -459,11 +461,3 @@ body {
   }
 }
 
-.container-box {
-  width: 150px;
-  height: 150px;
-  background-color: red;
-  z-index: 10;
-  position: absolute;
-  inset-inline-start: 0;
-}
